@@ -1,3 +1,4 @@
+if (Bangle.CLOCK) {
 (() => {
   function draw() {
     Bangle.removeListener("touch", touch);
@@ -28,3 +29,4 @@
   }
   WIDGETS["widlaun"] = { area:"tr", width:24, draw: draw, sortorder:100 };
 })();
+}
