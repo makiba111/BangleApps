@@ -1,0 +1,14 @@
+{ "id": "widlaunch",
+  "name": "Clock Launcher Call Widget",
+  "shortName":"Short Name",
+  "version":"0.01",
+  "description": "Launcher widget",
+  "icon": "widget.png",  
+  "type": "widget",
+  "tags": "widget",
+  "supports" : ["BANGLEJS2"],
+  "readme": "README.md",
+  "storage": [
+    {"name":"widlaunch.wid.js","url":"widget.js"}
+  ]
+}
