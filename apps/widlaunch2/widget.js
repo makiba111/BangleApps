@@ -19,7 +19,8 @@
     const w = WIDGETS.widlaun;
     if (w && c.x>=w.x && c.x<=w.x+24 && c.y>=w.y && c.y<=w.y+24){
       if (isClock) {
-        var apps = require("Storage")
+        const s = require("Storage");
+        var apps = s
           .list(/\.info$/)
           .map((app) => {
             var a = s.readJSON(app, 1);
