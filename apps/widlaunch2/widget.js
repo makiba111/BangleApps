@@ -1,9 +1,11 @@
 (() => {
+  const isClock = (Bangle.CLOCK) ? true: false;
+
   function draw() {
     Bangle.removeListener("touch", touch);
     Bangle.on("touch", touch);
 
-    if (Bangle.CLOCK) {
+    if (isClock) {
       g.reset().setColor("#ff0").drawImage(atob(
         "GBgB/////////+f//8P//4H//wD//hh//Dw/+GYf8MMP4YGHwwDDhgBhDAAwmAAZ8AAP8AAP8AcP8AcP8AcP8AcP8AcP////////"
       ), this.x, this.y);
@@ -14,17 +16,19 @@
     }
   }
   function touch(_, c) {
-    const w = WIDGETS.widlaunch2;
-    if (w && c.x>=w.x && c.x<=w.x+24 && c.y>=w.y && c.y<=w.y+24) {
-      if (Bangle.CLOCK) {
+    const w = WIDGETS.widlaun;
+    if (w && c.x>=w.x && c.x<=w.x+24 && c.y>=w.y && c.y<=w.y+24){
+      if (isClock) {
         var apps = require("Storage")
           .list(/\.info$/)
           .map((app) => {
             var a = s.readJSON(app, 1);
-            return (a && {
+            return (
+              a && {
                 type: a.type,
                 src: a.src
-            });
+              }
+            );
           })
           .filter((app) => app && (app.type == "launch"));
 
@@ -34,5 +38,5 @@
       }
     }
   }
-  WIDGETS.widlaunch2 = { area:"tr", width:24, draw: draw, sortorder:100 };
+  WIDGETS.widlaun = { area:"tr", width:24, draw: draw, sortorder:100 };
 })();
